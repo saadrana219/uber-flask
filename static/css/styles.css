@@ -1,0 +1,72 @@
+body {
+	font: 12px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#container {
+	width: 300px;
+	margin: 50px auto;
+}
+
+#container > div > h1 {
+	text-align: center;
+}
+
+ul.addresses {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	width: 300px;
+}
+
+ul.addresses > li {
+	padding: 10px 0px;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+}
+
+ul.addresses > li h1 {
+	text-transform: uppercase;
+	color: #666;
+	letter-spacing: 0px;
+	font-size: 10px;
+	font-weight: bold;
+	margin: 0px;
+}
+
+ul.addresses > li p {
+	margin: 0px;
+}
+
+ul.addresses > li > ul {
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	top: 10px;
+	right: 0px;
+	list-style: none;
+	background-color: #f1f1f1;
+	padding: 4px 0px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	font-size: 10px;
+	line-height: 10px;
+}
+
+ul.addresses > li > ul > li {
+	display: inline;
+	padding: 0px 10px;
+}
+
+ul.addresses > li > ul > li:first-child {
+	border-right: 1px solid #ccc;
+}
+
+ul.addresses > li > ul > li > a {
+	text-decoration: none;
+	color: #222;
+}
+
+ul.addresses > li > ul > li > a:hover {
+	text-decoration: underline;
+}

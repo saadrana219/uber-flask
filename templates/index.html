@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uber App</title>
+    <link href="/static/css/styles.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/vendor/jquery.js"></script>
+    <script src="/static/js/vendor/underscore.js"></script>
+    <script src="/static/js/vendor/backbone.js"></script>
+		<script src="/static/js/uber.js"></script>
+		
+		<script type="text/template" id="address-book-template">
+			<h1>Address Book</h1>
+			<ul class="addresses"></ul>
+			<form method="post" id="addressFrom" name="addressForm" onsubmit="return false">
+				<input name="nickname" id="nickname" type="text" />
+				<input name="location" id="location" type="text" />
+				<input type="submit" value="add" id="create" />
+			</form>
+		</script>
+		
+		<script type="text/template" id="address-template">
+			<h1 class="address-nickname"><%= nickname %></h1>
+			<p class="address-location"><%= location %></p>
+			<ul class="address-actions">
+				<li><a href="#" class="edit">Edit</a></li>
+				<li><a href="#" class="delete">Delete</a></li>
+			</ul>
+		</script>
+		
+		<script type="text/javascript">
+			jQuery(function() {
+				window.addressBook.fetch();
+			});
+		</script>
+</head>
+<body>
+	<div id="container"></div>
+</body>
+</html>
