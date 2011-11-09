@@ -11,9 +11,9 @@
 		<script type="text/template" id="address-book-template">
 			<h1>Address Book</h1>
 			<ul class="addresses"></ul>
-			<form method="post" id="addressFrom" name="addressForm" onsubmit="return false">
-				<input name="nickname" id="nickname" type="text" />
-				<input name="location" id="location" type="text" />
+			<form method="post" id="address-create-form" name="address-create-form" onsubmit="return false">
+				<input name="nickname" id="nickname" class="nickname-field" type="text" placeholder="Nickname"/>
+				<input name="location" id="location" class="location-field" type="text" placeholder="Address"/>
 				<input type="submit" value="add" id="create" />
 			</form>
 		</script>
@@ -27,9 +27,19 @@
 			</ul>
 		</script>
 		
+		<script type="text/template" id="address-edit-template">
+			<form method="post" class="address-edit-form" name="address-edit-form" onsubmit="return false">
+				<input name="nickname" class="nickname-field" type="text" />
+				<input type="submit" value="save" id="save" />
+			</form>
+		</script>
+		
 		<script type="text/javascript">
 			jQuery(function() {
 				window.addressBook.fetch();
+				$('a.edit, a.delete').live('click', function(){
+					return false;
+				});
 			});
 		</script>
 </head>

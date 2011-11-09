@@ -70,3 +70,11 @@ ul.addresses > li > ul > li > a {
 ul.addresses > li > ul > li > a:hover {
 	text-decoration: underline;
 }
+
+input.nickname-field {
+	width: 75px;
+}
+
+#address-create-form {
+	margin-top: 10px;
+}

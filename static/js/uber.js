@@ -13,7 +13,9 @@
 		tagName: 'li',
 		
 		events: {
-			'click a.delete': 'delete'
+			'click a.delete': 'delete',
+			'click a.edit'	: 'edit',
+			'submit .address-edit-form' : 'update'
 		},
 		
 		initialize: function() {
@@ -21,6 +23,7 @@
 			this.model.bind('change', this.render);
 			this.model.bind('destroy', this.remove, this);
 			this.template = _.template($('#address-template').html());
+			this.edit_template = _.template($('#address-edit-template').html());
 		},
 		
 		render: function() {
@@ -35,7 +38,19 @@
 		
 		remove: function() {
       $(this.el).remove();
-    }
+    },
+
+		edit: function() {
+			current_name = this.$('h1.address-nickname').text();
+			this.$('h1.address-nickname').remove();
+			$(this.el).prepend(this.edit_template());
+			this.$('.nickname-field').val(current_name);
+		},
+		
+		update: function() {
+			this.model.save({nickname: this.$('.nickname-field').val()});
+			this.render();
+		}
 	});
 	
 	window.AddressBookItemView = AddressView.extend({
@@ -43,7 +58,7 @@
 	
 	window.AddressBookView = Backbone.View.extend({
 		events: {
-			'click #create': 'create'
+			'submit #address-create-form': 'create'
 		},
 		
 		initialize: function() {
